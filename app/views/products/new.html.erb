@@ -1,0 +1,8 @@
+<%= link_to "Products Listing", root_path %>
+
+<%= simple_form_for :product, url: products_path, method: "POST" do |f| %>
+  <span class="btn btn-success fileinput-button">
+    <%= f.input :file, as: :file, label: "Products", input_html: {accept: ('application/json')}, required: true %>
+  </span>
+  <%= f.submit 'Upload File' %>
+<% end %>

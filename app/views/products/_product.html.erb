@@ -1,0 +1,10 @@
+<% products.each do |product| %>
+  <h3><%= product.title %></h3>
+  <p><%= product.description %></p>
+  <button class="btn-primary">
+    <%= product.country %>
+  </button>
+  <button class="btn-danger">
+    <%= product.price %>
+  </button>
+<% end %>

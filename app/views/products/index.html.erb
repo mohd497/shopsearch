@@ -1,2 +1,23 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<%= link_to "Import Products", new_product_path %>
+
+<div class="col-xs-12 col-sm-8">
+  <%= simple_form_for :search, url: root_path, method: "GET", remote: true do |f| %>
+    <%= f.input :title, id: 'search' %>
+    <%= f.submit 'Search' %>
+  <% end %>
+  <div id="products">
+    <%= render 'product', products: @products %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    var input = document.getElementById("search");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            alert('ddd');
+            Rails.fire(form, 'submit');
+        }
+    });
+</script>
