@@ -1,24 +1,13 @@
-# README
+# Shop search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Product search and filter implemented
 
-Things you may want to cover:
+* Ruby version is 2.6.5 and Rails is 5.2.4
 
-* Ruby version
+* to setup just configure database yml (postgres) and ```bundle install```
 
-* System dependencies
+* used pg_search gem becuase of fast setup and robust results
 
-* Configuration
+* to run tests use just use ```rspec spec/ ```
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
