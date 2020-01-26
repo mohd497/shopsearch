@@ -1,9 +1,9 @@
 <% products.each do |product| %>
 
   <div class="col-xs-4 col-sm-4">
-    <div class="box-part text-center">
+    <div class="box-part">
 
-      <div class="title">
+      <div class="title text-center">
         <h4><%= product.title %></h4>
       </div>
 
@@ -12,11 +12,11 @@
       </div>
 
       <div class="text">
-        <span><%= product.country %></span>
+        <span>Country: <%= product.country %></span>
       </div>
 
       <div class="text">
-        <span><%= number_to_currency(product.price, :unit => "$") %></span>
+        <span>Price <%= number_to_currency(product.price, :unit => "$") %></span>
       </div>
 
       <% product.tags.each do |tag| %>
@@ -24,6 +24,10 @@
           <%= tag.title %>
         </button>
       <% end %>
+
+      <div class="text">
+      <%= link_to 'Product information', product_path(product),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#productModel', class: 'btn btn-light'}  %>
+      </div>
 
     </div>
   </div>

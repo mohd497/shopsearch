@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+<div class="modal-body">
+  <div class="title text-center">
+    <h4><%= @product.title %></h4>
+  </div>
+
+  <div class="text">
+    <span><%= @product.description %></span>
+  </div>
+
+  <div class="text">
+    <span>Country: <%= @product.country %></span>
+  </div>
+
+  <div class="text">
+    <span>Price: <%= number_to_currency(@product.price, :unit => "$") %></span>
+  </div>
+
+  <% @product.tags.each do |tag| %>
+    <button class="btn-primary btn-margin">
+      <%= tag.title %>
+    </button>
+  <% end %>
+</div>

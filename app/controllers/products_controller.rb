@@ -10,6 +10,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def new
 
   end
