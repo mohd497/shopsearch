@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -30,8 +30,15 @@ gem 'pg_search' #chosen for quick setup and robust results
 
 gem 'simple_form' #for simple form
 
+gem 'jquery-rails'
+
+gem 'bootstrap', '~> 4.4.1' #for styling
+
+gem "font-awesome-rails" #for icons
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+#
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

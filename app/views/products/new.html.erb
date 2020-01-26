@@ -1,8 +1,15 @@
-<%= link_to "Products Listing", root_path %>
+<div class="box">
+  <div class="container">
+    <%= simple_form_for :product, url: products_path, method: "POST" do |f| %>
+      <span>
+        <div class="browse-wrap">
+          <div class="title">Choose a file to upload</div>
+          <%= f.input :file, as: :file, label: false, input_html: {accept: ('application/json')}, class: 'upload', required: true %>
+        </div>
+        <span class="upload-path"></span>
+      </span>
 
-<%= simple_form_for :product, url: products_path, method: "POST" do |f| %>
-  <span class="btn btn-success fileinput-button">
-    <%= f.input :file, as: :file, label: "Products", input_html: {accept: ('application/json')}, required: true %>
-  </span>
-  <%= f.submit 'Upload File' %>
-<% end %>
+      <%= f.submit 'Upload File', class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>

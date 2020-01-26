@@ -1,0 +1,18 @@
+<%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
+  <span>
+    <div class="input-group" >
+       <%= f.input :title, id: "title", :input_html => { :class => "search-bar" }, label: false, placeholder: 'search' %>
+       <i class="fa fa-search icon-search"></i>
+       <div class="selectbox">
+            <%= f.select :country, [], {}, { :class => 'country' }  %>
+       </div>
+       <%= f.input :min_price, id: "min_price", :input_html => { :class => "price" }, label: false, placeholder: 'min price' %>
+       <%= f.input :max_price, id: "max_price", :input_html => { :class => "price" }, label: false, placeholder: 'max price' %>
+       <div class="selectbox">
+           <%= f.select :sort, ["relevance", "Added old to new", "Added new to old", "Price low to high", "Price high to low"], {}, { :class => 'sort-select' }  %>
+       </div>
+           <%= f.submit 'Search', class: "btn btn-success search-button" %>
+    </div>
+       <a href="#" class="reset">reset</a>
+  </span>
+<% end %>
