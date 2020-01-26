@@ -6,7 +6,7 @@ Product search and filter implemented
 
 * to setup just configure database yml (postgres) and ```bundle install```
 
-* used pg_search gem becuase of fast setup and robust results
+* used pg_search gem because of fast setup and robust results
 
 * to run tests use just use ```rspec spec/ ```
 
