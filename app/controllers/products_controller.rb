@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
 
   include Products
+  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :create]
 
   def index
-    @products = Product.filter(params).paginate(page: params[:page], per_page: 9)
+    @products = Sfthouse.filter(params).paginate(page: params[:page], per_page: 9)
     respond_to do |format|
       format.html
       format.js
@@ -24,13 +25,13 @@ class ProductsController < ApplicationController
 
   def create
     file = params[:product][:file].read
-    products = product_parse(file)
-    @products = Product.create(products)
-    if @products.each(&:save)
-      redirect_to root_path, notice: "Products uploaded successfully."
-    else
-      render :new, alert: "There was an error that prevented this product from being created."
+    products = eval(file)[:pklist]
+    products.each do |product|
+      @product = Sfthouse.create(title: product[:title], website: product[:website], contact: product[:contact])
+      @product.save
     end
+
+    redirect_to root_path, notice: "Products uploaded successfully."
   end
 
   def product_params

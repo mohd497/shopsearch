@@ -7,26 +7,8 @@
         <h4><%= product.title %></h4>
       </div>
 
-      <div class="text">
-        <span><%= product.description %></span>
-      </div>
-
-      <div class="text">
-        <span>Country: <%= product.country %></span>
-      </div>
-
-      <div class="text">
-        <span>Price <%= number_to_currency(product.price, :unit => "$") %></span>
-      </div>
-
-      <% product.tags.each do |tag| %>
-        <button class="btn-primary btn-margin">
-          <%= tag.title %>
-        </button>
-      <% end %>
-
-      <div class="text">
-      <%= link_to 'Product information', product_path(product),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#productModel', class: 'btn btn-light'}  %>
+      <div class="text text-center">
+        <span><%= product.website %></span>
       </div>
 
     </div>
