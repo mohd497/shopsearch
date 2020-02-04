@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   include Products
-  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :create]
+  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :create, :all_software]
 
   def index
     @products = Sfthouse.filter(params).paginate(page: params[:page], per_page: 9)
@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def all_software
+    @softs = Sfthouse.all
+    render json: @softs
   end
 
   def show
