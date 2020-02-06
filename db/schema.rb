@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_070405) do
+ActiveRecord::Schema.define(version: 2020_02_06_061706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,10 +33,29 @@ ActiveRecord::Schema.define(version: 2020_01_24_070405) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.float "rating"
+    t.bigint "sfthouse_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sfthouse_id"], name: "index_reviews_on_sfthouse_id"
+  end
+
+  create_table "sfthouses", force: :cascade do |t|
+    t.string "title"
+    t.string "website"
+    t.string "contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reviews", "sfthouses"
 end
