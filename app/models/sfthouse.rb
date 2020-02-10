@@ -1,5 +1,7 @@
 class Sfthouse < ApplicationRecord
 
+  has_many :reviews
+
   include PgSearch::Model
   include Filterable
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_061706) do
+ActiveRecord::Schema.define(version: 2020_02_07_070046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_061706) do
     t.bigint "sfthouse_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "device_token"
     t.index ["sfthouse_id"], name: "index_reviews_on_sfthouse_id"
   end
 
