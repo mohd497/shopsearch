@@ -34,11 +34,16 @@ class ReviewsController < ApplicationController
     if review.count > 0
       render json: {error: "Already contains data!"}
     else
-      @review = Review.create(title: params[:title], description: params[:description], rating: params[:rating], sfthouse_id: params[:sfthouse_id], device_token: params[:device_token])
-      if @review.save
-        render json: {success: "Saved!"}
+      review2 = Review.where("device_token = ? and sfthouse_id = ?", params[:device_token], params[:sfthouse_id])
+      if review2.count > 0
+        @review = Review.create(title: params[:title], description: params[:description], rating: params[:rating], sfthouse_id: params[:sfthouse_id], device_token: params[:device_token])
+        if @review.save
+          render json: {success: "Saved!"}
+        else
+          render json: {error: "Not saved!"}
+        end
       else
-        render json: {error: "Not saved!"}
+        render json: {error: "Already contains data!"}
       end
     end
   end
