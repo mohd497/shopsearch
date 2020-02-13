@@ -1,0 +1,2 @@
+class InterviewCategory < ApplicationRecord
+end
