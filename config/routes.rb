@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interview_questions
   resources :interview_categories
   resources :reviews
   root to: "products#index" #index path

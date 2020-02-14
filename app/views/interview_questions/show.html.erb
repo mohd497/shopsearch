@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @interview_question.question %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @interview_question.answer %>
+</p>
+
+<p>
+  <strong>Interview category:</strong>
+  <%= @interview_question.interview_category %>
+</p>
+
+<%= link_to 'Edit', edit_interview_question_path(@interview_question) %> |
+<%= link_to 'Back', interview_questions_path %>

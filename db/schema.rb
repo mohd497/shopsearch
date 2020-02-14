@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_065015) do
+ActiveRecord::Schema.define(version: 2020_02_14_053326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_02_13_065015) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "interview_questions", force: :cascade do |t|
+    t.string "question"
+    t.text "answer"
+    t.bigint "interview_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interview_category_id"], name: "index_interview_questions_on_interview_category_id"
   end
 
   create_table "product_tags", force: :cascade do |t|
@@ -65,5 +74,6 @@ ActiveRecord::Schema.define(version: 2020_02_13_065015) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "interview_questions", "interview_categories"
   add_foreign_key "reviews", "sfthouses"
 end
