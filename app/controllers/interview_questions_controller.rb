@@ -7,6 +7,11 @@ class InterviewQuestionsController < ApplicationController
     @interview_questions = InterviewQuestion.all
   end
 
+  def interviews_per_cat
+    @iq = InterviewQuestion.where(interview_category_id: params[:cat_id])
+    render json: @iq
+  end
+
   # GET /interview_questions/1
   # GET /interview_questions/1.json
   def show
