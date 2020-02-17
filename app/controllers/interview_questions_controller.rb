@@ -8,7 +8,7 @@ class InterviewQuestionsController < ApplicationController
   end
 
   def interviews_per_cat
-    @iq = InterviewQuestion.where(interview_category_id: params[:cat_id])
+    @iq = InterviewQuestion.select('question as title, answer as content').where(interview_category_id: params[:cat_id])
     render json: @iq
   end
 
