@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :create, :reviews_per_house]
 
   # GET /reviews
   # GET /reviews.json

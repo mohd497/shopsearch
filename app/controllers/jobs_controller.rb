@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :create, :jobs_accepted]
 
   # GET /jobs
   # GET /jobs.json

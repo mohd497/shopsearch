@@ -1,5 +1,6 @@
 class InterviewQuestionsController < ApplicationController
   before_action :set_interview_question, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :create, :interviews_per_cat]
 
   # GET /interview_questions
   # GET /interview_questions.json

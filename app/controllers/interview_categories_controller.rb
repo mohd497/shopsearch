@@ -1,5 +1,6 @@
 class InterviewCategoriesController < ApplicationController
   before_action :set_interview_category, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :create, :all_categories]
 
   # GET /interview_categories
   # GET /interview_categories.json
