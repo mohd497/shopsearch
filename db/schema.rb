@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_053326) do
+ActiveRecord::Schema.define(version: 2020_02_21_054408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 2020_02_14_053326) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["interview_category_id"], name: "index_interview_questions_on_interview_category_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "salary_range"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "device_token"
+    t.boolean "accepted", default: false
   end
 
   create_table "product_tags", force: :cascade do |t|
@@ -57,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_053326) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "device_token"
+    t.boolean "accepted", default: false
     t.index ["sfthouse_id"], name: "index_reviews_on_sfthouse_id"
   end
 

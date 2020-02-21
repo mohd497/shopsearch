@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
   end
 
   def reviews_per_house
-    @reviews = Review.where(sfthouse_id: params[:sfthouse_id])
+    @reviews = Review.where(sfthouse_id: params[:sfthouse_id], accepted: true)
     render json: @reviews
   end
 
