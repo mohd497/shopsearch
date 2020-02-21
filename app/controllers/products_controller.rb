@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 
   def all_software
     #@softs = Sfthouse.select('stfhouses.id,stfhouses.title, AVG(reviews.rating)').joins(:reviews).group('sfthouses.id').references(:reviews)
-    sql = "SELECT v1.id,v1.title,v1.website,v1.contact,AVG(v2.rating) FROM sfthouses AS v1 LEFT JOIN reviews AS v2 ON v1.id = v2.sfthouse_id GROUP BY v1.id ORDER BY v1.id;"
+    sql = "SELECT v1.id,v1.title,v1.website,v1.contact,AVG(v2.rating) FROM sfthouses AS v1 LEFT JOIN reviews AS v2 ON v1.id = v2.sfthouse_id  AND v2.accepted = true GROUP BY v1.id ORDER BY v1.id;"
     records_array = ActiveRecord::Base.connection.execute(sql)
     render json: records_array
   end
